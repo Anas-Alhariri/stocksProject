@@ -1,0 +1,38 @@
+@import './variables';
+
+@mixin tablet {
+    @media (min-width:768px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width:1920px) {
+        @content;
+    }
+}
+
+@mixin desktop-large {
+    @media (min-width:2500px) {
+        @content;
+    }
+}
+
+@mixin small-container-boxshadow {
+    box-shadow: 0px 0px 10px 0px rgba(18, 52, 202, 0.2);
+    padding: 2%;
+    border-radius: 8px;
+}
+
+
+@mixin special-paragraph-container-boxshadow {
+    box-shadow: 0px 0px 10px 0px rgba(18, 52, 202, 0.2);
+    padding: 2%;
+    border-radius: 8px;
+    border: $dark-blue-box-border
+}
+
+@mixin desktop-large-paragraph {
+    font-size: 2rem;
+    line-height: 2.5rem;
+}

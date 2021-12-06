@@ -1,0 +1,26 @@
+@import '../../../styles/partials/mixins';
+@import '../../../styles/partials/variables';
+
+.chart-container {
+  margin: auto;
+  position: relative;
+}
+
+h1.chart-title {
+  color: black;
+}
+
+.favicon {
+  display: inline-block;
+  position: absolute;
+  font-size: 40px;
+  top: -20%;
+  right: 12px;
+  color: $main-color;
+  cursor: pointer;
+  transition: color .35s ease-in-out;
+}
+
+.favicon:hover {
+  color: $secondary-color;
+}

@@ -1,0 +1,12 @@
+@import './variables';
+
+@font-face {
+    font-family: 'raleway';
+    src: url('../../assets/fonts/Raleway-VariableFont_wght.ttf');
+}
+
+body {
+    font-family: 'raleway';
+    box-sizing: border-box;
+    color: $text-color;
+}

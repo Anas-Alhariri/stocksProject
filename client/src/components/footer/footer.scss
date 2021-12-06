@@ -1,0 +1,23 @@
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/variables';
+
+.footer {
+    background-color: $main-color;
+    border-radius: 4px;
+
+
+    &__container {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__contact {
+        @include small-container-boxshadow;
+        font-weight: bold
+    }
+
+    &__about-us {
+        @extend .footer__contact;
+    }
+
+}

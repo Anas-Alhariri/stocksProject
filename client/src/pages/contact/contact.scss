@@ -1,0 +1,25 @@
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/variables';
+
+.contact {
+    @include small-container-boxshadow;
+    width: 90%;
+    margin: auto;
+    border: $dark-blue-box-border;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+    &__title {
+
+        width: fit-content;
+        margin: auto;
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+
+    &__email {
+        font-size: 1.2rem;
+    }
+
+
+}
