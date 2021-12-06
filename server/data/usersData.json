@@ -1,6 +1,34 @@
 [
-    {
-        "id": 1,
-        "name": "Max"
-    }
+  {
+    "id": "3",
+    "fav": [
+      "ban"
+    ],
+    "recent": []
+  },
+  {
+    "id": "4",
+    "fav": [],
+    "recent": []
+  },
+  {
+    "id": "0",
+    "fav": [],
+    "recent": []
+  },
+  {
+    "id": "1",
+    "fav": [],
+    "recent": []
+  },
+  {
+    "id": "2",
+    "fav": [],
+    "recent": []
+  },
+  {
+    "id": "undefined",
+    "fav": [],
+    "recent": []
+  }
 ]

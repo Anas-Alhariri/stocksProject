@@ -17,6 +17,23 @@ export const getStock = (sym, setStocksFun) => {
         })
 }
 
+
+export const getUserSheet = (uid) => {
+    let response = {}
+    axios
+        .get(`http://localhost:5001/user/${uid}`)
+        .then(res => {
+            response = { ...res.data }
+            console.log(response)
+        })
+        .catch(err => console.error(err));
+
+
+    console.log(response)
+
+    return response
+}
+
 export const getUsersList = () => {
     axios.get("http://localhost:5001/users")
         .then(res => {
