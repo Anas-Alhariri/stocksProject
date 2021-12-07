@@ -20,7 +20,6 @@ export default function StockCard(props) {
             let newSheet = { fav }
             setUserSheet(newSheet)
         }
-        // setStockNames(newSheet.fav)
     }
 
     const removeFromFav = () => {
@@ -28,7 +27,6 @@ export default function StockCard(props) {
         let fav = userSheet.fav.filter(symbol => symbol !== sym)
         let newSheet = { ...userSheet, fav }
         setUserSheet(newSheet)
-        // setStockNames(newSheet.fav)
     }
 
     return (

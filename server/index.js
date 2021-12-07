@@ -61,7 +61,6 @@ app.put('/update-sheet/:id', (req, res) => {
 
         let user = jsonData.find(user => user.id === id)
 
-
         if (!user) {
             // TODO: Change the values from the body of the request. (The data object being sent to the backend.)
             let userSheet = {
@@ -82,15 +81,13 @@ app.put('/update-sheet/:id', (req, res) => {
 
             fs.writeFile('./data/usersData.json', JSON.stringify(newData, null, 2), 'utf-8', (err) => {
                 if (err) {
-
+                    console.log(err);
                 }
             })
         }
-
         res.send(newData).status(200)
     })
-
 })
 const port = process.env.PORT || 5001;
 
-app.listen(port, () => `Server running on port ${port} 🔥`);
+app.listen(port, () => `Server running on port ${port}`);
