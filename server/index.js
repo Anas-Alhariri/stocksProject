@@ -16,7 +16,6 @@ let users = []
 app.get("/users", (req, res) => {
     fs.readFile('./data/usersData.json', 'utf8', (err, data) => {
         users = data
-        console.log(users)
         res.send(users).status(200)
     })
 });
@@ -31,10 +30,10 @@ app.get("/user/:id", (req, res) => {
         // ? Review params
         let id = req.param("id")
         let jsonData = JSON.parse(data)
-        console.log(jsonData);
+
         let user = jsonData.find(user => user.id === id)
 
-        console.log(user);
+
         if (!user) {
             let userSheet = {
                 id: id,
@@ -46,12 +45,11 @@ app.get("/user/:id", (req, res) => {
             user = userSheet
             fs.writeFile('./data/usersData.json', JSON.stringify(jsonData, null, 2), 'utf-8', (err) => {
                 if (err) {
-                    console.log(err);
+
                 }
             })
         }
 
-        console.log(user)
         res.send(user).status(200)
     })
 });
@@ -60,10 +58,10 @@ app.put('/update-sheet/:id', (req, res) => {
     const id = req.param('id')
     fs.readFile('./data/usersData.json', 'utf8', (err, data) => {
         let jsonData = JSON.parse(data)
-        console.log(jsonData);
+
         let user = jsonData.find(user => user.id === id)
 
-        console.log(user);
+
         if (!user) {
             // TODO: Change the values from the body of the request. (The data object being sent to the backend.)
             let userSheet = {
@@ -84,7 +82,7 @@ app.put('/update-sheet/:id', (req, res) => {
 
             fs.writeFile('./data/usersData.json', JSON.stringify(newData, null, 2), 'utf-8', (err) => {
                 if (err) {
-                    console.log(err);
+
                 }
             })
         }

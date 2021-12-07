@@ -15,17 +15,13 @@ import Contact from "./pages/contact/contact";
 
 
 function App() {
-  const [stockNames, setStockNames] = useState(['AAPL', 'ADXS', 'MSFT', "AMD"])
+  const [stockNames, setStockNames] = useState(['AAPL', 'ADXS', 'MSFT', "AMD", "FB", "GOOG", "AMZN"])
   const [stocks, setStocks] = useState([])
   const [userSheet, setUserSheet] = useState(null)
   const [user, setUser] = useState(null)
 
 
-  useEffect(() => {
-    // if (user && userSheet && userSheet.fav.length > 0) {
-    //   setStockNames(userSheet.fav)
-    // }
-  }, [userSheet])
+
 
 
   return (

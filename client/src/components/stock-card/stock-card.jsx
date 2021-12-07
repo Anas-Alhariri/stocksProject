@@ -9,13 +9,11 @@ export default function StockCard(props) {
     const { user, setUser, userSheet, setUserSheet, stockNames, setStockNames, stocks, setStocks } = useContext(myGlobalState)
     const navigate = useNavigate();
     const addToFav = () => {
-        if (user) {
-            const sym = props.stock[0].symbol
-            let fav = [...userSheet.fav, sym]
-            let newSheet = { ...userSheet, fav }
-            setUserSheet(newSheet)
-            setStockNames(newSheet.fav)
-        }
+        const sym = props.stock[0].symbol
+        let fav = [...userSheet.fav, sym]
+        let newSheet = { ...userSheet, fav }
+        setUserSheet(newSheet)
+        // setStockNames(newSheet.fav)
     }
 
     const removeFromFav = () => {
@@ -23,7 +21,7 @@ export default function StockCard(props) {
         let fav = userSheet.fav.filter(symbol => symbol !== sym)
         let newSheet = { ...userSheet, fav }
         setUserSheet(newSheet)
-        setStockNames(newSheet.fav)
+        // setStockNames(newSheet.fav)
     }
 
     return (

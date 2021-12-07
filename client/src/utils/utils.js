@@ -8,18 +8,31 @@ export const sleep = (ms) => {
 }
 
 
-export const getStock = (sym, setStocks) => {
-    const API_LINK = `https://api.marketstack.com/v1/eod?access_key=${API_KEY}&symbols=${sym}`
-
+export const getStocks = async (stockNames, setStocks) => {
     setStocks(() => [])
+    let counter = 0
+    let stock = stockNames[counter]
 
-    axios.get(API_LINK)
-        .then(res => {
-            setStocks(old => [...old, res.data.data])
-        })
-        .catch(err => {
-            console.log(err);
-        })
+    let API_LINK = `https://api.marketstack.com/v1/eod?access_key=${API_KEY}&symbols=${stock}`
+    while (counter < stockNames.length) {
+        stock = stockNames[counter]
+        API_LINK = `https://api.marketstack.com/v1/eod?access_key=${API_KEY}&symbols=${stock}`
+        axios.get(API_LINK)
+            .then(res => {
+                setStocks(old => [...old, res.data.data])
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
+        counter++
+        if (counter < stockNames.length) {
+            stock = stockNames[counter]
+        } else {
+            break
+        }
+        await sleep(80)
+    }
 }
 
 
