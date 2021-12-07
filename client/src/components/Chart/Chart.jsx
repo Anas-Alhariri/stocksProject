@@ -8,7 +8,6 @@ const Chart = (props) => {
     return (
 
         <div className="chart-container">
-            <h1 className="chart-title">Stock Name</h1>
             <ResponsiveContainer width="100%" height={400}>
                 <AreaChart data={stock}>
                     <defs>

@@ -45,7 +45,7 @@ app.get("/user/:id", (req, res) => {
             user = userSheet
             fs.writeFile('./data/usersData.json', JSON.stringify(jsonData, null, 2), 'utf-8', (err) => {
                 if (err) {
-
+                    console.log(err)
                 }
             })
         }

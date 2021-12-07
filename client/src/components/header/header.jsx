@@ -12,8 +12,6 @@ export default function Header() {
     const { user, setUser, userSheet, setUserSheet, stockNames, setStockNames } = useContext(myGlobalState)
 
     const login = () => {
-
-
         signInWithGoogle()
             .then(res => {
                 let currentUser = { ...res.user }
@@ -22,7 +20,6 @@ export default function Header() {
                     .then(res => {
                         setUserSheet(res.data)
                     })
-
             })
     }
 

@@ -1,13 +1,11 @@
 import './styles/partials/_global.scss';
 import './App.css';
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Header from './components/header/header';
 import CardsList from './components/CardsList/CardsList';
 import Footer from './components/footer/footer';
 import Profile from './pages/profile/profile.jsx'
-import { getStock, setUserSheet } from '../src/utils/utils'
 import { myGlobalState } from './components/ContextStore/ContextStore';
-import { sleep } from '../src/utils/utils'
 import { Routes, Route } from "react-router-dom";
 import AboutUs from './pages/about-us/about-us';
 import Contact from "./pages/contact/contact";
@@ -20,8 +18,6 @@ function App() {
   const [stocks, setStocks] = useState([])
   const [userSheet, setUserSheet] = useState(null)
   const [user, setUser] = useState(null)
-
-
 
 
 

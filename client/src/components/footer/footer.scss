@@ -1,11 +1,15 @@
+@import '../../styles/partials/global';
 @import '../../styles/partials/mixins';
 @import '../../styles/partials/variables';
 
 
 
 .footer {
-
-
+    margin-top: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background-color: $main-color;
     border-radius: 4px;
 

@@ -19,7 +19,8 @@ export const getStocks = async (stockNames, setStocks) => {
         API_LINK = `https://api.marketstack.com/v1/eod?access_key=${API_KEY}&symbols=${stock}`
         axios.get(API_LINK)
             .then(res => {
-                setStocks(old => [...old, res.data.data])
+                let newData = res.data.data.reverse()
+                setStocks(old => [...old, newData])
             })
             .catch(err => {
                 console.log(err);
@@ -31,7 +32,7 @@ export const getStocks = async (stockNames, setStocks) => {
         } else {
             break
         }
-        await sleep(80)
+        await sleep(120)
     }
 }
 
