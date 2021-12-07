@@ -8,7 +8,7 @@ export default function StockCard(props) {
                 <section className='stock-card'>
                     <div>
                         <Chart data={props.stock} />
-                        <p className='stock-card__title'>{props.stock[0].symbol}</p>
+                        <p className='stock-card__title'>View Details</p>
                     </div>
                 </section>
             }

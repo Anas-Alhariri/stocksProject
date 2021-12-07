@@ -14,71 +14,65 @@ export const getStock = (sym, setStocksFun) => {
             setStocksFun(old => [...old, res.data.data])
         })
         .catch(err => {
+            console.log(err);
         })
 }
 
 
 export const getUserSheet = (uid) => {
-    let response = {}
-    axios
+    let responsePromise = axios
         .get(`http://localhost:5001/user/${uid}`)
-        .then(res => {
-            response = { ...res.data }
-            console.log(response)
+        .catch(err => {
+            console.log(err)
         })
-        .catch(err => console.error(err));
-
-
-    console.log(response)
-
-    return response
+    return responsePromise
 }
 
-export const getUsersList = () => {
-    axios.get("http://localhost:5001/users")
-        .then(res => {
-            data = res.data
-            console.log(data);
-        })
-        .catch(err => console.error(err));
-    return data
-}
+// export const getUsersList = () => {
+//     axios.get("http://localhost:5001/users")
+//         .then(res => {
+//             data = res.data
+//             console.log(data);
+//         })
+//         .catch(err => console.error(err));
+//     return data
+// }
 
-export const findUserById = (id) => {
-    const foundUser = data.find(user => user.id === id)
-    return foundUser
-}
+// export const findUserById = (id) => {
+//     const foundUser = data.find(user => user.id === id)
+//     return foundUser
+// }
 
-export const createUserSheet = (user) => {
-    // const foundUser = findUserById(user.id)
-    // if (foundUser) {
-    //     console.log("user exist")
-    //     return foundUser
-    // }
-    // const userSheet = {
-    //     id: user.id,
-    //     name: user.name,
-    //     email: user.email,
-    //     photo: user.photo || null,
-    //     favStocks: user.favStocks || [],
-    //     recentViewed: user.recentViewed || []
-    // }
+// export const createUserSheet = (user) => {
+//     // const foundUser = findUserById(user.id)
+//     // if (foundUser) {
+//     //     console.log("user exist")
+//     //     return foundUser
+//     // }
+//     // const userSheet = {
+//     //     id: user.id,
+//     //     name: user.name,
+//     //     email: user.email,
+//     //     photo: user.photo || null,
+//     //     favStocks: user.favStocks || [],
+//     //     recentViewed: user.recentViewed || []
+//     // }
 
-    // data.push(userSheet)
+//     // data.push(userSheet)
 
-    // console.log(process.cwd())
-    // fs.writeFile('usersData.json', JSON.stringify(data, null, 2), 'utf-8',
-    //     (err) => {
-    //         if (err) {
-    //             console.log(err)
-    //         }
-    //         else {
-    //             console.log("The data was written successfully")
-    //         }
-    //     })
+//     // console.log(process.cwd())
+//     // fs.writeFile('usersData.json', JSON.stringify(data, null, 2), 'utf-8',
+//     //     (err) => {
+//     //         if (err) {
+//     //             console.log(err)
+//     //         }
+//     //         else {
+//     //             console.log("The data was written successfully")
+//     //         }
+//     //     })
 
-    // return userSheet
-}
+//     // return userSheet
+// }
 
 // fs.writeFile('./data/video-details.json', JSON.stringify(newData, null, 2), 'utf-8', () => {
 //     console.log(newData)

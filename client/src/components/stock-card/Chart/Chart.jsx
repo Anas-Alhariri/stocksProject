@@ -9,7 +9,7 @@ const Chart = (props) => {
 
         <div className="chart-container">
             <p className="favicon">+</p>
-            <h1 className="chart-title">Stock Name</h1>
+            <h1 className="chart-title">{props.data[0].symbol.toUpperCase()}</h1>
             <ResponsiveContainer width="93.5%" height={260}>
                 <AreaChart data={stock}>
                     <defs>
