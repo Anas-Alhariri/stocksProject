@@ -10,20 +10,21 @@ import { getUserSheet } from '../../utils/utils'
 
 
 export default function Header() {
-    const { user, setUser, userSheet, setUserSheet } = useContext(myGlobalState)
-    // const [user, setUser] = useState(null)
-
+    const { user, setUser, userSheet, setUserSheet, stockNames, setStockNames } = useContext(myGlobalState)
 
     const login = () => {
-        signInWithGoogle().then(res => {
-            const currentUser = { ...res.user }
-            setUser({ ...currentUser })
-            getUserSheet(currentUser.uid).then(res => {
-                setUserSheet({ ...res.data })
+
+
+        signInWithGoogle()
+            .then(res => {
+                let currentUser = { ...res.user }
+                setUser({ ...currentUser })
+                getUserSheet(currentUser.uid)
+                    .then(res => {
+                        setUserSheet(res.data)
+                    })
+
             })
-        })
-
-
     }
 
 

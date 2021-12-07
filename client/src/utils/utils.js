@@ -6,21 +6,24 @@ import { API_KEY } from '../api/AppInfo'
 
 // const fs = require('browserify-fs')
 
-let data
 
-export const getStock = (sym, setStocksFun) => {
+export const sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+export const getStock = (sym, setStocks) => {
     const API_LINK = `https://api.marketstack.com/v1/eod?access_key=${API_KEY}&symbols=${sym}`
 
-    setStocksFun([])
-    let response = axios.get(API_LINK)
+    setStocks(() => [])
+
+    axios.get(API_LINK)
         .then(res => {
-            return res
+            setStocks(old => [...old, res.data.data])
         })
         .catch(err => {
             console.log(err);
         })
-
-    return response
 }
 
 
