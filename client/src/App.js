@@ -8,49 +8,39 @@ import Profile from './pages/profile/profile.jsx'
 import { getStock, setUserSheet } from '../src/utils/utils'
 import { myGlobalState } from './components/ContextStore/ContextStore';
 import { sleep } from '../src/utils/utils'
+import { Routes, Route } from "react-router-dom";
+import AboutUs from './pages/about-us/about-us';
+import Contact from "./pages/contact/contact";
+
+
 
 function App() {
   const [stockNames, setStockNames] = useState(['AAPL', 'ADXS', 'MSFT', "AMD"])
   const [stocks, setStocks] = useState([])
   const [userSheet, setUserSheet] = useState(null)
   const [user, setUser] = useState(null)
-  const [didUpdate, setDidUpdate] = useState(false)
 
-  const loadStocks = () => {
-    stockNames.forEach(async stock => {
-      await sleep(1000);
-      getStock(stock, setStocks)
-    })
-  }
 
   useEffect(() => {
-    if (user && userSheet && userSheet.fav.length > 0) {
-      setStockNames(userSheet.fav)
-      console.log('userSheet :', userSheet.fav);
-      console.log('user :', user);
-      setDidUpdate(true)
-    }
-    console.log("Stock Names:", stockNames)
-    loadStocks()
+    // if (user && userSheet && userSheet.fav.length > 0) {
+    //   setStockNames(userSheet.fav)
+    // }
   }, [userSheet])
 
-  useEffect(() => {
-    if (didUpdate)
-      loadStocks()
-    return () => {
-      setDidUpdate(false)
-    }
-  }, [stocks])
 
   return (
     <div className="App">
       <myGlobalState.Provider value={{ user, setUser, userSheet, setUserSheet, stocks, setStocks, stockNames, setStockNames }}>
         <Header />
-        <Profile />
-        <CardsList stocks={stocks} />
+        <Routes>
+          <Route path="/" element={<CardsList />} />
+          <Route path="/about" element={< AboutUs />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
         <Footer />
       </myGlobalState.Provider>
-    </div>
+    </div >
 
   );
 }

@@ -1,12 +1,11 @@
 import './header.scss'
-import userIcon from '../../assets/Images/user-svgrepo-com.svg'
-import whaleIcon from '../../assets/Images/whale-svgrepo-com (1).svg'
 import chartIcon from '../../assets/Images/line-chart-svgrepo-com.svg'
 import googleLogo from '../../assets/Images/google-login.png'
 import { myGlobalState } from '../ContextStore/ContextStore';
-import { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { signInWithGoogle } from '../../utils/Firebase'
 import { getUserSheet } from '../../utils/utils'
+import { Link } from 'react-router-dom';
 
 
 export default function Header() {
@@ -32,15 +31,17 @@ export default function Header() {
         <header className='header'>
             <div className='header__inner-container'>
                 <div className='header__title-container'>
-                    <h1 className='header__title'>Blue Watch</h1>
+                    <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+                        <h1 className='header__title'>Blue Watch</h1>
+                    </Link>
                     <img className='header__chart-icon' src={chartIcon} alt="chart-icon" />
                 </div>
                 {
                     user && user.photoURL ?
-                        <>
+                        <Link to="/profile" style={{ textDecoration: 'none', color: 'white', display: 'flex' }}>
                             <h4 className='header__user-name'>{user.displayName}</h4>
                             <img className='header__user-icon' alt='user icon' src={user.photoURL} />
-                        </>
+                        </Link>
                         :
                         <>
                             <button className='header__google-btn' onClick={login}>

@@ -1,14 +1,15 @@
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts'
 import { format, parseISO, subDays } from 'date-fns'
 import CustomTooltip from './CustomTooltip'
+
 import './Chart.scss'
 
 const Chart = (props) => {
+
     const stock = props.data
     return (
 
         <div className="chart-container">
-            <p className="favicon">+</p>
             <h1 className="chart-title">{props.data[0].symbol.toUpperCase()}</h1>
             <ResponsiveContainer width="93.5%" height={260}>
                 <AreaChart data={stock}>

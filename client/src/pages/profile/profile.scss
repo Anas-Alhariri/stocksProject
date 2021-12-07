@@ -1,0 +1,28 @@
+@import '../../styles/partials/global';
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/variables';
+
+.user-profile {
+    color: black;
+
+    &__username {}
+
+    &__fav-stocks {
+        background-color: rgb(233, 233, 233);
+        border-radius: 5px;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.322);
+        max-width: 40%;
+        padding: 10px;
+        padding-bottom: 30px;
+        margin: 10px auto;
+        color: $main-color;
+    }
+
+    &__fav-stocks__list {
+        width: 40%;
+        line-height: 25px;
+        margin: auto;
+        font-weight: bold;
+        text-align: left;
+    }
+}
