@@ -1,6 +1,7 @@
 // import data from '../data/usersData.json'
 import axios from 'axios'
 import { API_KEY } from '../api/AppInfo'
+
 // import fs from 'browserify-fs'
 
 // const fs = require('browserify-fs')
@@ -9,13 +10,17 @@ let data
 
 export const getStock = (sym, setStocksFun) => {
     const API_LINK = `https://api.marketstack.com/v1/eod?access_key=${API_KEY}&symbols=${sym}`
-    axios.get(API_LINK)
+
+    setStocksFun([])
+    let response = axios.get(API_LINK)
         .then(res => {
-            setStocksFun(old => [...old, res.data.data])
+            return res
         })
         .catch(err => {
             console.log(err);
         })
+
+    return response
 }
 
 

@@ -5,7 +5,7 @@ import Header from './components/header/header';
 import CardsList from './components/CardsList/CardsList';
 import Footer from './components/footer/footer';
 import Profile from './pages/profile/profile.jsx'
-import { getStock, getUserSheet } from '../src/utils/utils'
+import { getStock, setUserSheet } from '../src/utils/utils'
 import { myGlobalState } from './components/ContextStore/ContextStore';
 
 
@@ -17,34 +17,31 @@ function App() {
 
 
   const loadStocks = () => {
+    setStocks(() => [])
+
     stockNames.forEach(stock => {
       getStock(stock, setStocks)
+        .then(res => {
+          setStocks(old => [...old, res.data.data])
+        })
     })
   }
 
 
   useEffect(() => {
-    setStockNames((old) => ['AAPL', 'ADXS', 'MSFT', "AMD"])
+    setStockNames(() => ['AAPL', 'ADXS', 'MSFT', "AMD"])
 
-    if (user && userSheet) {
-      console.log(user)
-      console.log(userSheet)
-
-      if (userSheet.fav !== []) {
-        console.log(userSheet.fav)
-        setStockNames((old) => userSheet.fav)
-      }
+    if (user && userSheet && userSheet.fav !== []) {
+      setStockNames(userSheet.fav)
     }
 
-    // loadStocks()
+    loadStocks()
   }, [user, userSheet])
+
 
   useEffect(() => {
     loadStocks()
-    console.log(stockNames)
-
   }, [stockNames])
-
 
 
 
