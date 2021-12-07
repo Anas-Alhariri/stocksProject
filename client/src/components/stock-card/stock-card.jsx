@@ -9,15 +9,12 @@ import { Link } from 'react-router-dom';
 export default function StockCard(props) {
     const { user, setUser, userSheet, setUserSheet, stockNames, setStockNames, stocks, setStocks } = useContext(myGlobalState)
     const navigate = useNavigate();
+
     const addToFav = () => {
         const sym = props.stock[0].symbol
         if (userSheet) {
             let fav = [...userSheet.fav, sym]
             let newSheet = { ...userSheet, fav }
-            setUserSheet(newSheet)
-        } else {
-            let fav = [sym]
-            let newSheet = { fav }
             setUserSheet(newSheet)
         }
     }
@@ -48,6 +45,8 @@ export default function StockCard(props) {
                             <p className='stock-card__title'>View Details</p>
                         </Link>
                     </div>
+
+
                 </section>
             }
         </>

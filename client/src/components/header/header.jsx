@@ -35,10 +35,14 @@ export default function Header() {
                 </div>
                 {
                     user && user.photoURL ?
-                        <Link to="/profile" style={{ textDecoration: 'none', color: 'white', display: 'flex' }}>
-                            <h4 className='header__user-name'>{user.displayName}</h4>
-                            <img className='header__user-icon' alt='user icon' src={user.photoURL} />
-                        </Link>
+                        <div style={{ display: 'flex' }}>
+                            <Link to="/profile" style={{ textDecoration: 'none', color: 'white', display: 'flex' }}>
+                                <h4 className='header__user-name'>{user.displayName}</h4>
+                                <img className='header__user-icon' alt='user icon' src={user.photoURL} />
+                            </Link>
+                            <button onClick={() => { setUser(null) }}>Sign out</button>
+
+                        </div>
                         :
                         <>
                             <button className='header__google-btn' onClick={login}>
