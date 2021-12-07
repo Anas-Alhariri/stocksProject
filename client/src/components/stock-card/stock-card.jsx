@@ -4,6 +4,7 @@ import Chart from './Chart/Chart'
 import { myGlobalState } from '../ContextStore/ContextStore';
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function StockCard(props) {
     const { user, setUser, userSheet, setUserSheet, stockNames, setStockNames, stocks, setStocks } = useContext(myGlobalState)
@@ -39,7 +40,9 @@ export default function StockCard(props) {
                     }
                     <div>
                         <Chart data={props.stock} />
-                        <p className='stock-card__title'>View Details</p>
+                        <Link to={`/stockDetails/${props.stock[0].symbol}`} style={{ textDecoration: 'none', color: 'white' }} >
+                            <p className='stock-card__title'>View Details</p>
+                        </Link>
                     </div>
                 </section>
             }

@@ -11,6 +11,7 @@ import { sleep } from '../src/utils/utils'
 import { Routes, Route } from "react-router-dom";
 import AboutUs from './pages/about-us/about-us';
 import Contact from "./pages/contact/contact";
+import StockData from './components/stock-data/stock-data';
 
 
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/about" element={< AboutUs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/stockDetails/:sym" element={<StockData />} />
         </Routes>
         <Footer />
       </myGlobalState.Provider>
