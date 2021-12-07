@@ -23,7 +23,7 @@ export default function Profile() {
                     </div>
                 </>
                 :
-                <h1>There is no user logged it!</h1>
+                <h1>There is no user logged in!</h1>
             }
             <div>
 
