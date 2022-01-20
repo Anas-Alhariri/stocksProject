@@ -5,11 +5,12 @@
 
 
 .footer {
-    margin-top: auto;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
+
+    margin-top: auto;
     background-color: $main-color;
     border-radius: 4px;
 
@@ -21,7 +22,7 @@
 
     &__contact {
         // @include small-container-boxshadow;
-        font-weight: bold
+        // font-weight: bold
     }
 
     &__about-us {
